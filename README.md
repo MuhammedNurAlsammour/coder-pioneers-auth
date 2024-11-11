@@ -1,27 +1,128 @@
-# CoderPioneersLibs
+# @coder-pioneers/auth
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
+Bu kütüphane [Angular CLI](https://github.com/angular/angular-cli) sürüm 17.3.0 ile oluşturulmuştur.
 
-## Development server
+[![npm version](https://badge.fury.io/js/%40coder-pioneers%2Fauth.svg)](https://www.npmjs.com/package/@coder-pioneers/auth)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Özellikler
 
-## Code scaffolding
+- 🔐 Güvenli kimlik doğrulama sistemi
+- 🎨 Özelleştirilebilir giriş/kayıt bileşenleri
+- 🔄 Token yönetimi
+- 📱 Responsive tasarım
+- 🛡️ Korumalı sayfalar için Route Guard'lar
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Kurulum
 
-## Build
+```bash
+npm install @coder-pioneers/auth
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Hızlı Başlangıç
 
-## Running unit tests
+1. AuthModule'ü app.module.ts dosyanıza ekleyin:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```typescript
+import { AuthModule } from '@coder-pioneers/auth';
 
-## Running end-to-end tests
+@NgModule({
+  imports: [
+    AuthModule
+  ]
+})
+export class AppModule { }
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. Login bileşenini şablonunuzda kullanın:
 
-## Further help
+```html
+<lib-login></lib-login>
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Geliştirme
+
+### Bileşen Oluşturma
+
+Yeni bir bileşen oluşturmak için şu komutu çalıştırın:
+```bash
+ng generate component component-name --project auth
+```
+
+Ayrıca şunları da oluşturabilirsiniz:
+- Directive: `ng generate directive`
+- Pipe: `ng generate pipe`
+- Service: `ng generate service`
+- Class: `ng generate class`
+- Guard: `ng generate guard`
+- Interface: `ng generate interface`
+- Enum: `ng generate enum`
+
+> Not: `--project auth` parametresini eklemeyi unutmayın, aksi takdirde `angular.json` dosyasındaki varsayılan projeye eklenecektir.
+
+### Derleme
+
+Projeyi derlemek için:
+```bash
+ng build auth
+```
+Derleme çıktıları `dist/` dizininde saklanacaktır.
+
+### Yayınlama
+
+Kütüphaneyi derledikten sonra:
+```bash
+cd dist/auth
+npm publish
+```
+
+### Unit Testleri Çalıştırma
+
+[Karma](https://karma-runner.github.io) ile unit testleri çalıştırmak için:
+```bash
+ng test auth
+```
+
+## Hizmetler
+
+### AuthService
+
+Kimlik doğrulama işlemlerini yönetir:
+
+```typescript
+import { AuthService } from '@coder-pioneers/auth';
+
+constructor(private authService: AuthService) {}
+
+login(credentials: LoginCredentials) {
+  this.authService.login(credentials).subscribe(
+    response => console.log('Giriş başarılı')
+  );
+}
+```
+
+## Katkıda Bulunma
+
+1. Repository'yi fork edin
+2. Feature branch'inizi oluşturun (`git checkout -b feature/yeni-ozellik`)
+3. Değişikliklerinizi commit edin (`git commit -m 'Yeni özellik eklendi'`)
+4. Branch'e push edin (`git push origin feature/yeni-ozellik`)
+5. Pull Request açın
+
+## Daha Fazla Yardım
+
+Angular CLI hakkında daha fazla yardım için `ng help` komutunu kullanın veya [Angular CLI Genel Bakış ve Komut Referansı](https://angular.io/cli) sayfasını ziyaret edin.
+
+## Lisans
+
+Bu proje MIT Lisansı ile lisanslanmıştır - detaylar için [LICENSE](LICENSE) dosyasına bakın.
+
+## Yazar
+
+MuhammedNurAlsammour
+- GitHub: [@MuhammedNurAlsammour](https://github.com/MuhammedNurAlsammour)
+
+## Teşekkürler
+
+- Harika framework'leri için Angular ekibine
+- Bu kütüphaneyi geliştirmeye yardımcı olan tüm katkıda bulunanlara
